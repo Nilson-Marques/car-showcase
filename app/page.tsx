@@ -20,7 +20,6 @@ export default function Home() {
               <CustomFilter title="fuel"/>
               <CustomFilter title="year"/>
 
-
           </div>
         </div>
       </div>
