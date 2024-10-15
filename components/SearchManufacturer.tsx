@@ -23,7 +23,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer}:searchManufacturerP
 
  return (
     <div className='search-manufacturer'>
-      <Combobox>
+      <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
           <ComboboxButton className="absolute top-[14px]"> 
             <Image 
@@ -50,15 +50,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer}:searchManufacturerP
             afterLeave={()=> setQuery('')}
           >
             <ComboboxOptions>
-              {filteredManufacturers.length === 0 &&
-              query !== "" ? (
-                <ComboboxOption value={query}
-                className="search-manufacturer__option"
-                >
-                  creat "{query}"
-                </ComboboxOption>
-                ): (
-                  filteredManufacturers.map((item)=> (
+              {filteredManufacturers.map((item)=> (
                     <ComboboxOption 
                     key={item}
                     className={({ active}) => ` 
@@ -68,10 +60,23 @@ const SearchManufacturer = ({ manufacturer, setManufacturer}:searchManufacturerP
                     `}
                     value={item}
                     > 
-                      {item}
+                      {({ selected, active}) => (
+                        <> 
+                         <span className={`block truncate ${selected ? "font-medium" : "font-normal"}`}>
+                          {item}
+                        </span>
+
+                        {/* Show an active blue background color if the option is selected */}
+                        {selected ? (
+                          <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active? "text-white": "text-pribg-primary-purple"}`}
+                          >
+                          </span>
+                        ) : null}
+                        </>
+              )}
                     </ComboboxOption> 
                   )
-                ))}
+                )}
             </ComboboxOptions>
           </Transition>
         </div>
