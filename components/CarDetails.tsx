@@ -2,7 +2,7 @@
 
 import { Fragment } from 'react';
 import Image from 'next/image';
-import React from 'react'
+
 
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
 
@@ -14,7 +14,7 @@ interface CarDetailsProps  {
   car: CarProps;
 }
 
-const CarDetails = ({isOpen, closeModal, car}: CarDetailsProps) => {
+const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
   return (
    <>
    <Transition appear show={isOpen} as={Fragment}>
@@ -39,23 +39,23 @@ const CarDetails = ({isOpen, closeModal, car}: CarDetailsProps) => {
             as={Fragment}
             enter="ease-out duration-300"
             enterFrom="opacity-0 scale-95"
-            enterTo="opacity-100"
+            enterTo="opacity-100 escale-100"
             leave="ease-in duration-200"
-            leaveFrom="opacity-100"
+            leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
         >
-          <DialogPanel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white" >
+          <DialogPanel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white text-left shadow-xsl transition-all flex flex-col gap-5" >
             <button
               type="button"
               onClick={closeModal}
               >
-                <Image 
+              <Image
                 src="/close.svg"
                 alt="close"
                 width={20}
                 height={20}
                 className="object-contain"
-                />
+              />
             </button>
 
 
