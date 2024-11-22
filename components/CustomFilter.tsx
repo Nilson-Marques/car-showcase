@@ -26,7 +26,7 @@ const CustomFilter = ({title, options} : CustomfilterProps) => {
       value={selected}
       onChange={(e) => {
         setSelected(e);
-        updateSearchParams(e);
+        handleUpdateParams(e);
       }}
       >
           <div className="relative w-fit z-10">
