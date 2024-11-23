@@ -54,3 +54,11 @@ export interface CustomfilterProps  {
     options: optionProps[];
 }
 
+export interface ShowMoreProps { 
+    pageNumber: number;
+    isNext: boolean;
+}
+
+
+
+
